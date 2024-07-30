@@ -11,15 +11,24 @@ export default function LoginForm() {
 		process.env.NEXT_PUBLIC_SUPABASE_URL!,
 		process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 	);
-    const handleLogin = () => {
-        supabase.auth.signInWithOAuth({
-            provider:"github",
-            options: {
-                redirectTo: process.env.PROD_URL + "auth/callback?next=" + pathname,
-            },
-        });
-    };
-    return (
-        <Button variant="outline" className="flex items-center gap-2" onClick={handleLogin}>< SiGithub />Login</Button>
-    )
+
+
+	const handleLogin = () => {
+		supabase.auth.signInWithOAuth({
+			provider: "github",
+			options: {
+				redirectTo: process.env.PROD_URL + "auth/callback?next=" + pathname,
+			},
+		});
+	};
+
+	return (
+		<Button
+			className="flex items-center gap-2"
+			variant="outline"
+			onClick={handleLogin}
+		>
+			<SiGithub /> Login
+		</Button>
+	);
 }
