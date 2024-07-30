@@ -26,10 +26,10 @@ export default function Profile() {
     return (
         <Popover>
             <PopoverTrigger>
-                {user?.image_url ? (
+                {user?.user_metadata?.avatar_url ? (
                     <Image
-                        src={user.image_url}
-                        alt={user.display_name || "User Avatar"}
+                        src={user.user_metadata.avatar_url}
+                        alt={user.user_metadata.user_name || "User Avatar"}
                         width={50}
                         height={50}
                         className="rounded-full ring-2 ring-green-500"
