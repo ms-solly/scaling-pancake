@@ -1,16 +1,17 @@
 "use client";
-import { Button } from "@/components/ui/button";
+import react from "react";
+import { Button } from "../button";
 import { SiGithub } from "react-icons/si";
 import { createBrowserClient } from "@supabase/ssr";
 import { usePathname } from "next/navigation";
-import React from "react";
 
 export default function LoginForm() {
-	const pathname = usePathname();
-	const supabase = createBrowserClient(
+    const pathname = usePathname();
+    const supabase = createBrowserClient(
 		process.env.NEXT_PUBLIC_SUPABASE_URL!,
 		process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 	);
+
 
 	const handleLogin = () => {
 		supabase.auth.signInWithOAuth({
