@@ -15,7 +15,7 @@ export default function LoginForm() {
         supabase.auth.signInWithOAuth({
             provider:"github",
             options: {
-                redirectTo: location.origin + "auth/callback?next=" + pathname,
+                redirectTo: process.env.PROD_URL + "auth/callback?next=" + pathname,
             },
         });
     };
